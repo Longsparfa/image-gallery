@@ -186,7 +186,7 @@ const ImageGallery = () => {
   return (
     <>
     {navbar}
-    <section className='grid grid-cols-3 place-items-center '>
+    <section className='grid sm:grid-cols-2 md:grid-cols-3 place-items-center '>
             {images.filter(image => {
                 return search.toLowerCase() === "" ? image : image.tag.toLowerCase().includes(search.toLowerCase())
             }).map((image, index) => {
