@@ -174,7 +174,7 @@ const ImageGallery = () => {
         </div>
         <button type='submit' className='bg-[#0f1624] text-white p-2 rounded-[5px]' onClick={logoutUser}>Logout</button>
         <div className='ml-4'>
-            <input type="text" placeholder='Search by tag' className='text-sm h-8 pl-2 rounded-[5px]' onChange={(e) => setSearch(e.target.value)}  />
+            <input type="text" placeholder='Search based on the tags' className='text-sm h-8 px-4 rounded-[5px]' onChange={(e) => setSearch(e.target.value)}  />
         </div>
         <div className='ml-4'>
             <img src="/favicon.ico" alt="" className='rounded-full h-5 w-5 md:h-8 md:w-8 ' />
@@ -188,7 +188,7 @@ const ImageGallery = () => {
     {navbar}
     <section className='grid grid-cols-3 place-items-center '>
             {images.filter(image => {
-                return search.toLowerCase() === "" ? image : image.tag.toLowerCase().includes(search)
+                return search.toLowerCase() === "" ? image : image.tag.toLowerCase().includes(search.toLowerCase())
             }).map((image, index) => {
                 return (
                <div 
@@ -203,7 +203,7 @@ const ImageGallery = () => {
                     <img src={image.image} alt={image.photo_by} className='w-[20rem] lg:w-[40rem] h-[20rem] md:h-[30rem] object-cover overflow-hidden' />
                     <div className='flex justify-between p-2'>
                         <p className='text-sm'>{image.photo_by}</p>
-                        <p className='text-sm'>{image.tag}</p>
+                        <p className='text-sm'><span className='md:text-xl'>#</span>{image.tag}</p>
                     </div>
                 </div>
 
