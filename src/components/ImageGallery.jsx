@@ -8,7 +8,7 @@ const ImageGallery = () => {
     const [images, setImages] = useState([
         {
             photo_by: 'Parfa Longs',
-            tag: 'free',
+            tag: 'Avee',
             image: '/images/Im1.png',
             id: '1',
         },
@@ -50,19 +50,19 @@ const ImageGallery = () => {
         },
         {
             photo_by: 'Mantim Longs',
-            tag: 'free',
+            tag: 'Zoom',
             image: '/images/Im40.png',
             id: '8',
         },
         {
             photo_by: 'Mantim Longs',
-            tag: 'free',
+            tag: 'bee',
             image: '/images/Im9.png',
             id: '9',
         },
         {
             photo_by: 'Mantim Longs',
-            tag: 'free',
+            tag: 'meat',
             image: '/images/Im10.png',
             id: '10',
         },
@@ -86,43 +86,43 @@ const ImageGallery = () => {
         },
         {
             photo_by: 'Mantim Longs',
-            tag: 'free',
+            tag: 'view',
             image: '/images/Im24.png',
             id: '14',
         },
         {
             photo_by: 'Mantim Longs',
-            tag: 'free',
+            tag: 'monk',
             image: '/images/Im23.png',
             id: '15',
         },
         {
             photo_by: 'Mantim Longs',
-            tag: 'free',
+            tag: 'pray',
             image: '/images/Im22.png',
             id: '16',
         },
         {
             photo_by: 'Mantim Longs',
-            tag: 'free',
+            tag: 'people',
             image: '/images/Im17.png',
             id: '17',
         },
         {
             photo_by: 'Mantim Longs',
-            tag: 'free',
+            tag: 'nature',
             image: '/images/Im18.png',
             id: '18',
         },
         {
             photo_by: 'Mantim Longs',
-            tag: 'free',
+            tag: 'music',
             image: '/images/Im21.png',
             id: '19',
         },
         {
             photo_by: 'Mantim Longs',
-            tag: 'free',
+            tag: 'video',
             image: '/images/Im20.png',
             id: '20',
         },
@@ -201,8 +201,7 @@ const ImageGallery = () => {
                   onDragOver={(e) => e.preventDefault()}
                 >
                     <img src={image.image} alt={image.photo_by} className='w-[20rem] lg:w-[40rem] h-[20rem] md:h-[30rem] object-cover overflow-hidden' />
-                    <div className='flex justify-between p-2'>
-                        <p className='text-sm'>{image.photo_by}</p>
+                    <div className='flex justify-center p-2'>
                         <p className='text-sm'><span className='md:text-xl'>#</span>{image.tag}</p>
                     </div>
                 </div>
