@@ -187,43 +187,71 @@ const ImageGallery = () => {
     </div>
   );
 
+  const filterData = images.filter((image) => {
+    return search.toLowerCase() === ""
+      ? image
+      : image.tag.toLowerCase().includes(search.toLowerCase());
+  });
+
+  const data = filterData.map((image, index) => {
+    return (
+      <div
+        className="rounded-[10px] shadow-lg m-4 bg-white cursor-move "
+        key={index}
+        // draggable
+        // onDragStart={(e) => (dragItem.current = index)}
+        // onDragEnter={(e) => (dragOverItem.current = index)}
+        // onDragEnd={sortImage}
+        // onDragOver={(e) => e.preventDefault()}
+      >
+        <img
+          src={image.image}
+          alt={image.photo_by}
+          className="w-[20rem] lg:w-[40rem] h-[20rem] md:h-[30rem] object-cover overflow-hidden"
+        />
+        <div className="flex justify-center p-2">
+          <p className="text-sm">
+            <span className="md:text-xl">#</span>
+            {image.tag}
+          </p>
+        </div>
+      </div>
+    );
+  });
+
+  const data2 = images.map((image, index) => {
+    return (
+      <div
+        className="rounded-[10px] shadow-lg m-4 bg-white cursor-move "
+        key={index}
+        // draggable
+        // onDragStart={(e) => (dragItem.current = index)}
+        // onDragEnter={(e) => (dragOverItem.current = index)}
+        // onDragEnd={sortImage}
+        // onDragOver={(e) => e.preventDefault()}
+      >
+        <img
+          src={image.image}
+          alt={image.photo_by}
+          className="w-[20rem] lg:w-[40rem] h-[20rem] md:h-[30rem] object-cover overflow-hidden"
+        />
+        <div className="flex justify-center p-2">
+          <p className="text-sm">
+            <span className="md:text-xl">#</span>
+            {image.tag}
+          </p>
+        </div>
+      </div>
+    );
+  });
+
   return (
     <>
       {navbar}
       <section className="grid sm:grid-cols-2 md:grid-cols-3 place-items-center ">
-        <Draggable>
-        {images
-          .filter((image) => {
-            return search.toLowerCase() === ""
-              ? image
-              : image.tag.toLowerCase().includes(search.toLowerCase());
-          })
-          .map((image, index) => {
-            return (
-              <div
-                className="rounded-[10px] shadow-lg m-4 bg-white cursor-move "
-                key={index}
-                // draggable
-                // onDragStart={(e) => (dragItem.current = index)}
-                // onDragEnter={(e) => (dragOverItem.current = index)}
-                // onDragEnd={sortImage}
-                // onDragOver={(e) => e.preventDefault()}
-              >
-                <img
-                  src={image.image}
-                  alt={image.photo_by}
-                  className="w-[20rem] lg:w-[40rem] h-[20rem] md:h-[30rem] object-cover overflow-hidden"
-                />
-                <div className="flex justify-center p-2">
-                  <p className="text-sm">
-                    <span className="md:text-xl">#</span>
-                    {image.tag}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
-          </Draggable>
+        {search && <Draggable>{data}</Draggable>}
+
+        <Draggable>{data2}</Draggable>
       </section>
     </>
   );
